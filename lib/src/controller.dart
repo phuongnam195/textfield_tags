@@ -23,8 +23,8 @@ abstract class TextfieldTagsNotifier extends ChangeNotifier {
 
   final scrollController = ScrollController();
 
-  late TextEditingController? textEditingController;
-  late FocusNode? focusNode;
+  TextEditingController? textEditingController;
+  FocusNode? focusNode;
 
   Set<String>? _textSeparators;
   List<String>? _tags;
