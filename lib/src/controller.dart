@@ -26,8 +26,8 @@ abstract class TextfieldTagsNotifier extends ChangeNotifier {
   late TextEditingController? textEditingController;
   late FocusNode? focusNode;
 
-  late Set<String>? _textSeparators;
-  late List<String>? _tags;
+  Set<String>? _textSeparators;
+  List<String>? _tags;
 
   List<String>? get getTags => _tags?.toList();
 
@@ -172,7 +172,7 @@ class TextfieldTagsController extends TextfieldTagsNotifier {
 
   void clearTags() {
     _error = null;
-    _tags!.clear();
+    _tags?.clear();
     notifyListeners();
   }
 
