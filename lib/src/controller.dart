@@ -127,7 +127,7 @@ class TextfieldTagsController extends TextfieldTagsNotifier {
   @override
   void onChanged(String value) {
     final ts = _textSeparators!;
-    final lc = _letterCase!;
+    final lc = _letterCase;
     final separator = ts.cast<String?>().firstWhere(
         (element) => value.contains(element!) && value.indexOf(element) != 0,
         orElse: () => null);
