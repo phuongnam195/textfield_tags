@@ -44,11 +44,11 @@ abstract class TextfieldTagsNotifier extends ChangeNotifier {
   }
 
   set addTag(String tag) {
-    _tags!.add(tag);
+    _tags?.add(tag);
   }
 
   set removeTag(String tag) {
-    _tags!.remove(tag);
+    _tags?.remove(tag);
   }
 
   onChanged(String value);
@@ -114,7 +114,7 @@ class TextfieldTagsController extends TextfieldTagsNotifier {
 
   void _onTagOperation(String tag) {
     if (tag.isNotEmpty) {
-      textEditingController!.clear();
+      textEditingController?.clear();
       _error = _validator != null ? _validator!(tag) : null;
       if (!hasError) {
         super.addTag = tag;
@@ -145,7 +145,7 @@ class TextfieldTagsController extends TextfieldTagsNotifier {
 
   @override
   void onSubmitted(String value) {
-    final lc = _letterCase!;
+    final lc = _letterCase;
     final val = lc == LetterCase.small
         ? value.trim().toLowerCase()
         : lc == LetterCase.capital
@@ -179,8 +179,8 @@ class TextfieldTagsController extends TextfieldTagsNotifier {
   @override
   void dispose() {
     super.dispose();
-    textEditingController!.dispose();
-    focusNode!.dispose();
+    textEditingController?.dispose();
+    focusNode?.dispose();
     scrollController.dispose();
   }
 }
